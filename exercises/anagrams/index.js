@@ -9,31 +9,6 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-    if (stringA.length !== stringB.length) return false;
-    const lettersOfStringA = {}
-    for (let charIndex = 0; charIndex < stringA.length; charIndex++) {
-        const charA = stringA[charIndex].toLowerCase();
-        if (isLetter(charA)) {
-            if (!lettersOfStringA[charA]) {
-                lettersOfStringA[charA] = 0;
-            }
-            lettersOfStringA[charA]++;
-        }
-
-        const charB = stringB[charIndex].toLowerCase();
-        if (isLetter(charB)) {
-            if (!lettersOfStringA[charB]) {
-                lettersOfStringA[charB] = 0;
-            }
-            lettersOfStringA[charB]--;
-        }
-    }
-    
-    return !Object.values(lettersOfStringA).some((count) => count !== 0);
-}
-
-function anagrams2(stringA, stringB) {
-    if (stringA.length !== stringB.length) return false;
     const lettersOfStringA = {}
     for (const char of stringA) {
         if (!isLetter(char)) continue;
